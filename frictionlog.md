@@ -702,3 +702,49 @@ I also forgot to add in cfnOutput values so that I can quickly build my frontend
 I made the changes are redeployed.
 
 Actually, everything can be test from the AppSync console. Gonna test there.
+
+#### Debugging
+
+I created a Cognito user and tested out the `listProducts` mutation.
+
+It errored because it's expecting a list. A quick peek at the cloudwatch logs showed that I forgot to put `.items`.
+
+I redeployed, refreshed the screenm and tried again: I worked.
+
+Next up is creating an item. This is the one that is doing a lot. Lets first see if an item is able to be created:
+
+I'm going to run call the `createProduct` mutation and have it give back all the items:
+
+```graphql
+mutation MyMutation {
+	createProduct(input: { name: "Lego Set" }) {
+		createdAt
+		id
+		name
+		updatedAt
+	}
+}
+```
+
+This worked on the first try :D
+
+```json
+{
+	"data": {
+		"createProduct": {
+			"createdAt": "2023-05-22T07:24:50.662Z",
+			"id": "72d535e5-18bd-45f1-8401-80e237ed0acd",
+			"name": "Lego Set",
+			"updatedAt": "2023-05-22T07:24:50.662Z"
+		}
+	}
+}
+```
+
+However, the real question is what happened in the Lambda trigger. Looking at DDB the stream is correctly enabled.
+
+Looks like it started, but failed on nodeFetch. Looking at the npm docs for it, it says, "node-fetch from v3 is an ESM-only module - you are not able to import it with require().
+
+If you cannot switch to ESM, please use v2 which remains compatible with CommonJS. Critical bug fixes will continue to be published for v2."
+
+I always forget that!
