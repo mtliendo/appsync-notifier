@@ -12,7 +12,7 @@ export function request(
 ): DynamoDBPutItemRequest {
 	let values = ctx.args.input
 	let id = util.autoId()
-	util.dynamodb.toDynamoDB
+
 	return {
 		operation: 'PutItem',
 		key: util.dynamodb.toMapValues({ id }),
