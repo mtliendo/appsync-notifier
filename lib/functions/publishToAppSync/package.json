@@ -1,0 +1,19 @@
+{
+  "name": "publishtoappsync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-lambda": "^1.0.7",
+    "node-fetch": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.115"
+  }
+}

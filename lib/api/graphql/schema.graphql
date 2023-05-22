@@ -1,0 +1,23 @@
+type Query {
+	listProducts: [Product] @aws_cognito_user_pools @aws_iam
+}
+
+type Mutation {
+	createProduct(input: ProductInput): Product @aws_cognito_user_pools
+	publish(data: AWSJSON): AWSJSON @aws_iam
+}
+
+type Subscription {
+	subscribe: AWSJSON @aws_subscribe(mutations: ["publish"])
+}
+
+type Product {
+	id: ID!
+	createdAt: AWSDateTime
+	updatedAt: AWSDateTime
+	name: String
+}
+
+input ProductInput {
+	name: String
+}
