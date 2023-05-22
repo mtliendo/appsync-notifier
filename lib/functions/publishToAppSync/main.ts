@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk')
 const urlParse = require('url').URL
-const nodeFetch = require('node-fetch')
+const fetch = require('node-fetch')
 import { DynamoDBStreamEvent } from 'aws-lambda'
 
 //Just copied this over from the GraphQL file
@@ -58,7 +58,7 @@ exports.handler = async (event: DynamoDBStreamEvent) => {
 						body: httpRequest.body,
 						headers: httpRequest.headers,
 					}
-					return nodeFetch(appsyncUrl, options).then((res: any) => res.json())
+					return fetch(appsyncUrl, options).then((res: any) => res.json())
 				}
 
 				try {

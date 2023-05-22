@@ -5,5 +5,5 @@ export function request(ctx: Context) {
 }
 
 export function response(ctx: Context) {
-	return ctx.result
+	return ctx.result.items
 }
