@@ -748,3 +748,27 @@ Looks like it started, but failed on nodeFetch. Looking at the npm docs for it, 
 If you cannot switch to ESM, please use v2 which remains compatible with CommonJS. Critical bug fixes will continue to be published for v2."
 
 I always forget that!
+
+Updated the version and redeployed. Going to create a new product and see what happens.
+
+```graphql
+subscription MySubscription {
+	subscribe
+}
+```
+
+It looks like it worked after that. the lambda is showing published data. I'm wearily optimistic. Gonna start up the subscription and see what happens.
+
+OMG it worked! I got back the following:
+
+```json
+{
+	"data": {
+		"subscribe": "{\"owner\":\"2a15324f-0eb5-4cf6-ac1b-f1a51dcb598e\",\"createdAt\":\"2023-05-22T07:40:07.366Z\",\"__typename\":\"Product\",\"name\":\"Lego Set4\",\"id\":\"081eb63d-33fa-4c41-a5ec-e00bc0559a31\",\"updatedAt\":\"2023-05-22T07:40:07.366Z\"}"
+	}
+}
+```
+
+Since `owner` and `__typename` aren't part of the schema, I'll keep it as AWSJSON instead of `Product`. This feels good though.
+
+Calling this project complete :)
