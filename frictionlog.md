@@ -700,3 +700,5 @@ At this point I feel confident about everything except the lambda trigger. I spe
 I also forgot to add in cfnOutput values so that I can quickly build my frontend.
 
 I made the changes are redeployed.
+
+Actually, everything can be test from the AppSync console. Gonna test there.
