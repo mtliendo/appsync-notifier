@@ -698,4 +698,5 @@ This makes our handler code simpler since the only events that will be sent are 
 At this point I feel confident about everything except the lambda trigger. I spent around 30 minutes trying to figure out how to get rid of cyclic dependencies and another 5 minutes working out small deploy issues. But it deployed fairly easily.
 
 I also forgot to add in cfnOutput values so that I can quickly build my frontend.
-I
+
+I made the changes are redeployed.
