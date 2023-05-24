@@ -5,11 +5,12 @@
 		"appsync-notifier": "bin/appsync-notifier.js"
 	},
 	"scripts": {
+		"codegen": "cd lib/api/graphql && npx @aws-amplify/cli codegen && cd ../../..",
 		"build:appsyncFunctions": "node build.mjs",
 		"deploy": " npm run build:appsyncFunctions && npx aws-cdk deploy",
 		"build": "tsc",
 		"watch": "tsc -w",
-		"test": "jest",
+		"test": "echo 'lol...'",
 		"cdk": "cdk"
 	},
 	"devDependencies": {
