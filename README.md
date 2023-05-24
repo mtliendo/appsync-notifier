@@ -1,6 +1,6 @@
 # AppSync Notification Pattern
 
-[notification patten architecture diagram](./readmeImages/notifier-pattern-ad.png)
+![notification patten architecture diagram](./readmeImages/notifier-pattern-ad.png)
 
 This project is leverages the AWS CDK to create an API that can list products, and create new products. When a product is created, a DynamoDB stream triggers a Lambda function that calls an AppSync mutation. This mutation simply passes data to subscribing clients.
 
